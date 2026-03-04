@@ -24,8 +24,10 @@ if st.button("Generate Trip"):
 
     with st.spinner("Agents are collaborating to build your itinerary..."):
         try:
-            # Change URL to match the backend's exposed endpoint
-            r = requests.post("http://localhost:8000/api/plan-trip", json=payload)
+            # Change URL to match the backend's exposed endpoint dynamically via ENV vars
+            import os
+            backend_url = os.getenv("BACKEND_URL", "http://localhost:8000")
+            r = requests.post(f"{backend_url}/api/plan-trip", json=payload)
             r.raise_for_status()
             data = r.json()
             st.success("Trip plan generated successfully!")
@@ -34,9 +36,9 @@ if st.button("Generate Trip"):
             if trip_id:
                 col1, col2 = st.columns(2)
                 with col1:
-                    st.markdown(f"**[📄 Download PDF Itinerary](http://localhost:8000/api/download/{trip_id}/pdf)**")
+                    st.markdown(f"**[📄 Download PDF Itinerary]({backend_url}/api/download/{trip_id}/pdf)**")
                 with col2:
-                    st.markdown(f"**[📅 Download ICS Calendar](http://localhost:8000/api/download/{trip_id}/ics)**")
+                    st.markdown(f"**[📅 Download ICS Calendar]({backend_url}/api/download/{trip_id}/ics)**")
 
             st.json(data)
         except requests.exceptions.RequestException as e:
