@@ -9,13 +9,13 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # ── Azure OpenAI ──────────────────────────────────────────────────────
-AZURE_OPENAI_KEY = os.getenv("AZURE_OPENAI_KEY", "")
-AZURE_OPENAI_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT", "")
-AZURE_OPENAI_DEPLOYMENT = os.getenv("AZURE_OPENAI_DEPLOYMENT", "gpt-4o")
-AZURE_OPENAI_API_VERSION = os.getenv("AZURE_OPENAI_API_VERSION", "2024-06-01")
+AZURE_OPENAI_KEY = ""
+AZURE_OPENAI_ENDPOINT = ""
+AZURE_OPENAI_DEPLOYMENT = "gpt-4o"
+AZURE_OPENAI_API_VERSION = "2024-06-01"
 
 # ── Azure Maps ────────────────────────────────────────────────────────
-AZURE_MAPS_KEY = os.getenv("AZURE_MAPS_KEY", "")
+AZURE_MAPS_KEY = ""
 
 # ── App Settings ──────────────────────────────────────────────────────
 OUTPUT_DIR = os.getenv("OUTPUT_DIR", "outputs")

@@ -132,7 +132,7 @@ def _generate_pdf(plan: TripPlan, filepath: str) -> None:
     elements.append(Paragraph(plan.title, title_style))
     summary_text = (
         f"<b>Trip Details:</b> {plan.num_days} Days | {plan.num_travelers} Travelers | "
-        f"Budget: ₹{plan.budget:,}<br/><br/>"
+        f"Budget: Rs. {plan.budget:,}<br/><br/>"
         f"{plan.summary}"
     )
     elements.append(Paragraph(summary_text, subtitle_style))
@@ -161,10 +161,10 @@ def _generate_pdf(plan: TripPlan, filepath: str) -> None:
                 Paragraph(act.time_slot or "—", normal_style),
                 Paragraph(act.name, activity_name_style),
                 Paragraph(details_text, normal_style),
-                Paragraph(f"₹{act.estimated_cost}" if act.estimated_cost else "Free", cost_style),
+                Paragraph(f"Rs. {act.estimated_cost}" if act.estimated_cost else "Free", cost_style),
             ])
 
-        col_widths = [25*mm, 45*mm, 80*mm, 20*mm] 
+        col_widths = [25*mm, 45*mm, 82*mm, 18*mm] 
 
         table = Table(table_data, colWidths=col_widths, repeatRows=1)
         table.setStyle(TableStyle([
@@ -190,7 +190,7 @@ def _generate_pdf(plan: TripPlan, filepath: str) -> None:
     elements.append(HRFlowable(width="100%", thickness=1.5, color=BRAND_ACCENT, spaceBefore=10, spaceAfter=10))
     elements.append(
         Paragraph(
-            f"Total Estimated Cost: ₹{plan.total_estimated_cost:,}",
+            f"Total Estimated Cost: Rs. {plan.total_estimated_cost:,}",
             ParagraphStyle(
                 "TotalCost",
                 parent=styles["Normal"],
@@ -232,7 +232,7 @@ def _generate_ics(plan: TripPlan, filepath: str) -> None:
                 "description",
                 f"{act.description}\n\n"
                 f"Category: {act.category}\n"
-                f"Estimated Cost: ₹{act.estimated_cost}\n"
+                f"Estimated Cost: Rs. {act.estimated_cost}\n"
                 f"Travel to next: {act.travel_time_to_next or 'N/A'}",
             )
             if act.location:
