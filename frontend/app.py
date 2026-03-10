@@ -31,17 +31,17 @@ p, li, span, div { font-family: 'Inter', sans-serif; }
 .slide {
     position:absolute; width:100%; height:100%;
     background-size:cover; background-position:center;
-    opacity:0; animation:fadeSlide 30s infinite;
+    opacity:0; animation:fadeSlide 36s infinite;
 }
 .slide:nth-child(1){ background-image:url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2000"); animation-delay:0s; }
-.slide:nth-child(2){ background-image:url("https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=2000"); animation-delay:5s; }
-.slide:nth-child(3){ background-image:url("https://images.unsplash.com/photo-1506929113675-b55f9d393543?q=80&w=2000"); animation-delay:10s; }
-.slide:nth-child(4){ background-image:url("https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2000"); animation-delay:15s; }
-.slide:nth-child(5){ background-image:url("https://images.unsplash.com/photo-1530789253388-582c481c54b0?q=80&w=2000"); animation-delay:20s; }
-.slide:nth-child(6){ background-image:url("https://images.unsplash.com/photo-1504150558240-0b4fd8946624?q=80&w=2000"); animation-delay:25s; }
+.slide:nth-child(2){ background-image:url("https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=2000"); animation-delay:6s; }
+.slide:nth-child(3){ background-image:url("https://images.unsplash.com/photo-1506929113675-b55f9d393543?q=80&w=2000"); animation-delay:12s; }
+.slide:nth-child(4){ background-image:url("https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2000"); animation-delay:18s; }
+.slide:nth-child(5){ background-image:url("https://images.unsplash.com/photo-1530789253388-582c481c54b0?q=80&w=2000"); animation-delay:24s; }
+.slide:nth-child(6){ background-image:url("https://images.unsplash.com/photo-1504150558240-0b4fd8946624?q=80&w=2000"); animation-delay:30s; }
 
 @keyframes fadeSlide {
-    0%{opacity:0; transform: scale(1);} 5%{opacity:1; transform: scale(1.02);} 16%{opacity:1; transform: scale(1.04);} 21%{opacity:0; transform: scale(1.05);} 100%{opacity:0; transform: scale(1.05);}
+    0%{opacity:0;} 5%{opacity:1;} 16%{opacity:1;} 21%{opacity:0;} 100%{opacity:0;}
 }
 
 .overlay { position:fixed; top:0; left:0; width:100vw; height:100vh; background: linear-gradient(135deg, rgba(15, 23, 42, 0.7) 0%, rgba(2, 6, 23, 0.85) 100%); z-index:-1; }
