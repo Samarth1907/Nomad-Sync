@@ -122,8 +122,8 @@ if not st.session_state.logged_in:
         st.markdown('<p class="subtitle">EXECUTIVE TRAVEL PLANNER</p>', unsafe_allow_html=True)
 
         if st.session_state.view == "login":
-            user = st.text_input("Access Key", placeholder="Username (try: admin)")
-            passw = st.text_input("Security Token", type="password", placeholder="Password (try: pramana)")
+            user = st.text_input("Access Key", placeholder="Username")
+            passw = st.text_input("Security Token", type="password", placeholder="Password")
             submitted = st.form_submit_button("AUTHENTICATE")
             
             if submitted:
@@ -293,9 +293,36 @@ else:
                 if trip_id:
                     dl1, dl2 = st.columns(2)
                     with dl1:
-                        st.markdown(f"<a href='{backend_url}/api/download/{trip_id}/pdf' target='_blank'><button style='background:transparent;color:#d4af37;border:1px solid #d4af37;padding:8px 20px;border-radius:6px;cursor:pointer;'>📄 Download PDF</button></a>", unsafe_allow_html=True)
+                        try:
+                            pdf_res = requests.get(f"{backend_url}/api/download/{trip_id}/pdf")
+                            if pdf_res.status_code == 200:
+                                st.download_button(
+                                    label="📄 Download PDF",
+                                    data=pdf_res.content,
+                                    file_name=f"nomad_sync_{trip_id}.pdf",
+                                    mime="application/pdf",
+                                    use_container_width=True
+                                )
+                            else:
+                                st.error("PDF currently unavailable")
+                        except Exception as e:
+                            st.error("Failed to fetch PDF")
+                    
                     with dl2:
-                        st.markdown(f"<a href='{backend_url}/api/download/{trip_id}/ics' target='_blank'><button style='background:transparent;color:#888;border:1px solid #888;padding:8px 20px;border-radius:6px;cursor:pointer;'>📅 Sync Calendar</button></a>", unsafe_allow_html=True)
+                        try:
+                            ics_res = requests.get(f"{backend_url}/api/download/{trip_id}/ics")
+                            if ics_res.status_code == 200:
+                                st.download_button(
+                                    label="📅 Sync Calendar",
+                                    data=ics_res.content,
+                                    file_name=f"nomad_sync_{trip_id}.ics",
+                                    mime="text/calendar",
+                                    use_container_width=True
+                                )
+                            else:
+                                st.error("Calendar currently unavailable")
+                        except Exception as e:
+                            st.error("Failed to fetch Calendar")
 
                 st.markdown("<br><hr><br>", unsafe_allow_html=True)
 
