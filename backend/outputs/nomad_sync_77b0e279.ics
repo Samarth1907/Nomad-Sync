@@ -1,0 +1,105 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Nomad-Sync//Travel Engine//EN
+X-WR-CALNAME:Trip to Mahabalipuram
+BEGIN:VEVENT
+SUMMARY:Shore Temple
+DTSTART:20260306T090000
+DTEND:20260306T110000
+UID:3e288f95-db87-4ded-81a9-9e1fe2751fd9@nomad-sync
+DESCRIPTION:UNESCO World Heritage Site overlooking the Bay of Bengal. A st
+ unning 8th-century granite temple complex.\n\nCategory: sightseeing\nEstim
+ ated Cost: ₹50\nTravel to next: 15 min
+LOCATION:Shore Temple\, Mahabalipuram
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pancha Rathas (Five Rathas)
+DTSTART:20260306T113000
+DTEND:20260306T130000
+UID:322e3165-0021-4041-abe6-b65e03e14eea@nomad-sync
+DESCRIPTION:Monolithic rock-cut temples dating back to the 7th century. Ea
+ ch ratha is carved from a single granite boulder.\n\nCategory: sightseeing
+ \nEstimated Cost: ₹50\nTravel to next: 10 min
+LOCATION:Five Rathas\, Mahabalipuram
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Lunch at Moonrakers
+DTSTART:20260306T133000
+DTEND:20260306T143000
+UID:ce93e0b3-eb00-4960-8167-a2876e378d76@nomad-sync
+DESCRIPTION:Seafood restaurant with stunning ocean views. Famous for its p
+ rawn curry and fish fry.\n\nCategory: food\nEstimated Cost: ₹400\nTravel
+  to next: 5 min
+LOCATION:Othavadai Street\, Mahabalipuram
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Arjuna's Penance
+DTSTART:20260306T150000
+DTEND:20260306T163000
+UID:547c98b4-bc40-41e4-9bfa-47bcd11c08ca@nomad-sync
+DESCRIPTION:World's largest open-air rock relief carving. A 27m × 9m marv
+ el depicting scenes from the Mahabharata.\n\nCategory: sightseeing\nEstima
+ ted Cost: ₹0\nTravel to next: 15 min
+LOCATION:Arjuna's Penance\, Mahabalipuram
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Mahabalipuram Beach Sunset
+DTSTART:20260306T170000
+DTEND:20260306T183000
+UID:1a3b3363-79b1-459d-b681-e0dd7a9dea44@nomad-sync
+DESCRIPTION:Relax on the golden sands and watch the sunset over the Bay of
+  Bengal. Street-food stalls nearby.\n\nCategory: leisure\nEstimated Cost: 
+ ₹100\nTravel to next: N/A
+LOCATION:Mahabalipuram Beach
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tiger Cave
+DTSTART:20260307T080000
+DTEND:20260307T093000
+UID:7b9f3056-47aa-4517-839a-fa02363775db@nomad-sync
+DESCRIPTION:Rock-cut temple with stunning tiger-head reliefs. Less crowded
+  gem surrounded by casuarina groves.\n\nCategory: sightseeing\nEstimated C
+ ost: ₹0\nTravel to next: 20 min
+LOCATION:Tiger Cave\, Saluvankuppam
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Crocodile Bank
+DTSTART:20260307T100000
+DTEND:20260307T120000
+UID:409cc561-e05a-4fd2-aaa6-b75e97cfaba4@nomad-sync
+DESCRIPTION:One of the largest reptile zoos in Asia. Home to 2\,400+ croco
+ diles\, alligators\, and turtles.\n\nCategory: sightseeing\nEstimated Cost
+ : ₹50\nTravel to next: 15 min
+LOCATION:Crocodile Bank\, Vadanemmeli
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Lunch at Bay's Restaurant
+DTSTART:20260307T123000
+DTEND:20260307T133000
+UID:b921d972-08c8-4d7e-bce5-b21a3d933552@nomad-sync
+DESCRIPTION:Authentic South Indian meals (banana leaf thali) with fresh lo
+ cal fish preparations.\n\nCategory: food\nEstimated Cost: ₹350\nTravel t
+ o next: 5 min
+LOCATION:East Coast Road\, Mahabalipuram
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Shopping – Stone Sculpture Market
+DTSTART:20260307T140000
+DTEND:20260307T153000
+UID:fec259a9-fbfb-475f-a313-f1d8004e977c@nomad-sync
+DESCRIPTION:Browse hand-carved granite sculptures\, souvenirs\, and tradit
+ ional crafts made by local artisans.\n\nCategory: shopping\nEstimated Cost
+ : ₹500\nTravel to next: 10 min
+LOCATION:Sculpture Market\, Mahabalipuram
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Return to Chennai
+DTSTART:20260307T160000
+DTEND:20260307T173000
+UID:c2a2b662-609e-4c6a-b26f-2b75c5d68cd7@nomad-sync
+DESCRIPTION:Scenic drive back along East Coast Road (ECR). Approx 1.5 hour
+ s depending on traffic.\n\nCategory: transport\nEstimated Cost: ₹300\nTr
+ avel to next: N/A
+LOCATION:ECR Highway
+END:VEVENT
+END:VCALENDAR

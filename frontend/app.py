@@ -78,10 +78,21 @@ input::placeholder { color:rgba(255,255,255,0.6); }
     margin-top:15px; transition:all .25s ease;
 }
 .signup-link {
-    color:rgba(255,255,255,0.7); font-size:0.85rem; margin-top:20px;
+    color:rgba(255,255,255,0.7); font-size:0.85rem; margin-top:20px; text-align:center;
 }
-.signup-link a { color:#f5d76e; text-decoration:none; font-weight:600; }
-.signup-link a:hover { text-decoration:underline; }
+.stButton>button[key^="toggle"] {
+    background: transparent !important;
+    border: none !important;
+    color: #f5d76e !important;
+    font-weight: 600 !important;
+    padding: 0 !important;
+    margin-top: 15px !important;
+    box-shadow: none !important;
+}
+.stButton>button[key^="toggle"]:hover {
+    text-decoration: underline !important;
+    color: #f5d76e !important;
+}
 </style>
 
 <div id="bg-slideshow">
@@ -97,32 +108,58 @@ input::placeholder { color:rgba(255,255,255,0.6); }
 
 
 # ═══════════════════════════════════════════════════════════════
-# LOGIN PAGE
+# LOGIN / SIGNUP PAGE
 # ═══════════════════════════════════════════════════════════════
+if 'users' not in st.session_state:
+    st.session_state.users = {"admin": "pramana"}
+if 'view' not in st.session_state:
+    st.session_state.view = "login"
+
 if not st.session_state.logged_in:
 
-    with st.form("login_form"):
+    with st.form("auth_form"):
         st.markdown('<h1 class="hero-title">Nomad-Sync</h1>', unsafe_allow_html=True)
         st.markdown('<p class="subtitle">EXECUTIVE TRAVEL PLANNER</p>', unsafe_allow_html=True)
 
-        user = st.text_input("Access Key", placeholder="Username (try: admin)")
-        passw = st.text_input("Security Token", type="password", placeholder="Password (try: pramana)")
+        if st.session_state.view == "login":
+            user = st.text_input("Access Key", placeholder="Username (try: admin)")
+            passw = st.text_input("Security Token", type="password", placeholder="Password (try: pramana)")
+            submitted = st.form_submit_button("AUTHENTICATE")
+            
+            if submitted:
+                if user in st.session_state.users and st.session_state.users[user] == passw:
+                    st.session_state.logged_in = True
+                    st.rerun()
+                else:
+                    st.error("Invalid credentials")
+        else:
+            new_user = st.text_input("Choose an Access Key", placeholder="Username")
+            new_passw = st.text_input("Create Security Token", type="password", placeholder="Password")
+            confirm_passw = st.text_input("Confirm Security Token", type="password", placeholder="Confirm Password")
+            submitted = st.form_submit_button("CREATE ACCOUNT")
+            
+            if submitted:
+                if new_user in st.session_state.users:
+                    st.error("Username already exists")
+                elif new_passw != confirm_passw:
+                    st.error("Passwords do not match")
+                elif len(new_user) == 0 or len(new_passw) == 0:
+                    st.error("Fields cannot be empty")
+                else:
+                    st.session_state.users[new_user] = new_passw
+                    st.success("Account created! You can now login.")
+                    st.session_state.view = "login"
+                    st.rerun()
 
-        submitted = st.form_submit_button("AUTHENTICATE")
-        if submitted:
-            if user == "admin" and passw == "pramana":
-                st.session_state.logged_in = True
-                st.rerun()
-            else:
-                st.error("Invalid credentials")
-
-    # Signup link below the form
-    st.markdown("""
-    <p class="signup-link">
-        Don't have an account? <a href="#">Create one now →</a>
-    </p>
-    """, unsafe_allow_html=True)
-
+    # Toggle link below the form
+    if st.session_state.view == "login":
+        if st.button("Don't have an account? Create one now →", key="toggle_signup"):
+            st.session_state.view = "signup"
+            st.rerun()
+    else:
+        if st.button("Already have an account? Login here →", key="toggle_login"):
+            st.session_state.view = "login"
+            st.rerun()
 
 # ═══════════════════════════════════════════════════════════════
 # DASHBOARD PAGE
